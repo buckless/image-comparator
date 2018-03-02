@@ -100,6 +100,10 @@ export default {
   user-select: none;
 }
 
+.b-image-comparator__image > img {
+  max-width: 100%;
+}
+
 .b-image-comparator__image-last {
   position: absolute;
   top: 0;
