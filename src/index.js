@@ -1,13 +1,13 @@
-import ImageComparator from './ImageComparator.vue'
+import BImageComparator from './ImageComparator.vue'
 
-const Library = {
+const ImageComparator = {
   install(Vue, options) {
-    Vue.component('b-image-comparator', ImageComparator)
+    Vue.component('b-image-comparator', BImageComparator)
   }
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(Library)
+  window.Vue.use(ImageComparator)
 }
 
-export { Library }
+export { ImageComparator }
