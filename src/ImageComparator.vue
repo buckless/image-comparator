@@ -92,6 +92,7 @@ export default {
 .b-image-comparator {
   display: inline-flex;
   position: relative;
+  overflow: hidden;
 }
 
 .b-image-comparator__image {
