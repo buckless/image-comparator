@@ -15,4 +15,16 @@ const Simple = Vue.component('story-simple', {
   `
 })
 
-stories.add('simple', () => Simple)
+const DarkMode = Vue.component('story-dark', {
+  components: { ImageComparator },
+  methods: { action },
+  template: `
+    <image-comparator
+      darkMode
+      image1="http://via.placeholder.com/500x500"
+      image2="https://i.imgur.com/lqBfukG.jpg"/>
+  `
+})
+
+stories.add('Simple', () => Simple)
+stories.add('Dark Mode', () => DarkMode)

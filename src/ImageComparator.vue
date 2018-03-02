@@ -1,5 +1,5 @@
 <template>
-  <div class="b-image-comparator" @mousemove.passive="move">
+  <div class="b-image-comparator" :class="dark" @mousemove.passive="move">
     <div class="b-image-comparator__image">
       <img :src="image1" @load="update" />
     </div>
@@ -18,6 +18,11 @@ export default {
     initialValue: {
       type: Number,
       default: 0.3
+    },
+
+    darkMode: {
+      type: Boolean,
+      default: false
     },
 
     image1: {
@@ -42,6 +47,10 @@ export default {
   },
 
   computed: {
+    dark() {
+      return this.darkMode ? 'b-image-comparator--dark' : ''
+    },
+
     clip() {
       return {
         clip: `rect(0px, ${this.value * this.width}px, ${this.height}px, 0px)`
@@ -74,7 +83,11 @@ export default {
         return
       }
 
-      this.value = (e.x - this.left) / this.width
+      let value = (e.x - this.left) / this.width
+      value = Math.min(1, value)
+      value = Math.max(0, value)
+
+      this.value = value
     },
   },
 
@@ -182,5 +195,23 @@ export default {
   border-left: 6px solid white;
   right: 50%;
   margin-right: -18px;
+}
+
+.b-image-comparator--dark .b-image-comparator__slider__arrow,
+.b-image-comparator--dark .b-image-comparator__slider:before,
+.b-image-comparator--dark .b-image-comparator__slider:after {
+  background-color: #444;
+}
+
+.b-image-comparator--dark .b-image-comparator__slider {
+  border-color: #444;
+}
+
+.b-image-comparator--dark .b-image-comparator__slider__arrow:after {
+  border-right-color: #444;
+}
+
+.b-image-comparator--dark .b-image-comparator__slider__arrow:before {
+  border-left-color: #444;
 }
 </style>
