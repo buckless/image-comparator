@@ -11,6 +11,7 @@
     "dev": "start-storybook -p 9001 -c .storybook",
     "lint": "standard src",
     "build": "cross-env NODE_ENV=production webpack",
+    "beforePublish": "rm -rf dist/ && npm run build",
     "deploy": "storybook-to-ghpages"
   },
   "devDependencies": {
