@@ -5,8 +5,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'library.js',
-    library: 'library',
+    filename: 'imagecomparator.js',
+    library: 'ImageComparator',
     libraryTarget: 'umd'
   },
   module: {
