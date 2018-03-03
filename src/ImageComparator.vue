@@ -68,6 +68,7 @@ export default {
     update() {
       this.width = this.$el.getBoundingClientRect().width
       this.height = this.$el.getBoundingClientRect().height
+      this.left = this.$el.getBoundingClientRect().left
     },
 
     down() {
