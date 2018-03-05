@@ -134,7 +134,7 @@ export default {
   margin-top: -22px;
   border: 3px solid white;
   background-color: rgba(255,255,255,.4);
-  cursor: ew-resize;
+  cursor: pointer;
   border-radius: 100%;
   box-shadow: 0px 0px 12px rgba(0,0,0,.12);
   z-index: 40;
