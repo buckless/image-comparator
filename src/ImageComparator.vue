@@ -1,12 +1,12 @@
 <template>
-  <div class="b-image-comparator" :class="dark" @mousemove.passive="move">
+  <div class="b-image-comparator" :class="dark" @mousemove.passive="move" @touchmove.passive="move">
     <div class="b-image-comparator__image">
       <img :src="image1" @load="update" />
     </div>
     <div class="b-image-comparator__image b-image-comparator__image-last" :style="clip" ref="image-2">
       <img :src="image2" />
     </div>
-    <div class="b-image-comparator__slider" :style="handle" @mousedown="down" @mouseup="up">
+    <div class="b-image-comparator__slider" :style="handle" @mousedown="down" @touchstart="down" @mouseup="up" @touchend="up">
       <div class="b-image-comparator__slider__arrow"></div>
     </div>
   </div>
@@ -72,10 +72,12 @@ export default {
     },
 
     down() {
+      console.log('down')
       this.dragging = true
     },
 
     up() {
+      console.log('up')
       this.dragging = false
     },
 
@@ -84,7 +86,9 @@ export default {
         return
       }
 
-      let value = (e.x - this.left) / this.width
+      const left = (e.touches && e.touches[0]) ? e.touches[0].pageX : e.x
+
+      let value = (left - this.left) / this.width
       value = Math.min(1, value)
       value = Math.max(0, value)
 
