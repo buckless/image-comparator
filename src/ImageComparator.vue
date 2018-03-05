@@ -72,12 +72,10 @@ export default {
     },
 
     down() {
-      console.log('down')
       this.dragging = true
     },
 
     up() {
-      console.log('up')
       this.dragging = false
     },
 
