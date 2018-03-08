@@ -1,6 +1,6 @@
 {
   "name": "@buckless/image-comparator",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "VueJS plugin to compare two images with a slider",
   "main": "dist/library.js",
   "module": "src/index.js",
