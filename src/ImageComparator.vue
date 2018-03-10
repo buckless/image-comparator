@@ -6,7 +6,7 @@
     <div class="b-image-comparator__image b-image-comparator__image-last" :style="clip" ref="image-2">
       <img :src="image2" alt="Image after" />
     </div>
-    <div class="b-image-comparator__slider" :style="handle" @mousedown="down" @touchstart="down" @mouseup="up" @touchend="up">
+    <div class="b-image-comparator__slider" :style="handle" @mousedown.prevent="down" @touchstart.prevent="down" @mouseup.prevent="up" @touchend.prevent="up">
       <div class="b-image-comparator__slider__arrow"></div>
     </div>
   </div>
