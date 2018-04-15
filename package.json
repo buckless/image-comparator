@@ -15,7 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "prepush": "if branch is master; then npm run static; fi"
+      "pre-commit": "if [ `git rev-parse --abbrev-ref HEAD` = \"master\" ]; then npm run static && git add docs/; fi;"
     }
   },
   "devDependencies": {
