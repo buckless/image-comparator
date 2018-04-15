@@ -11,9 +11,12 @@
     "dev": "start-storybook -p 9001 -c .storybook",
     "lint": "standard src",
     "build": "cross-env NODE_ENV=production webpack",
-    "static": "build-storybook -c .storybook -o docs",
-    "prepublish": "rm -rf dist/ && npm run build",
-    "deploy": "storybook-to-ghpages"
+    "static": "build-storybook -c .storybook -o docs"
+  },
+  "husky": {
+    "hooks": {
+      "prepush": "if branch is master; then npm run static; fi"
+    }
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.13",
@@ -24,6 +27,7 @@
     "babel-loader": "^7.1.2",
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.9",
+    "husky": "^1.0.0-rc.1",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "standard": "^10.0.3",
